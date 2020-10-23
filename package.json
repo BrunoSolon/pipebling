@@ -8,7 +8,13 @@
     "build": "npm run clean && babel ./src --out-dir ./dist --copy-files",
     "prepublish": "npm run build",
     "start": "node ./dist/app",
+    "lint": "./node_modules/.bin/eslint -c .eslintrc --ext .js ./src",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   },
   "keywords": [],
   "author": "",
