@@ -1,0 +1,23 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": true
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread"
+  ],
+  "ignore": [
+    ".nyc_output",
+    "node_modules",
+    "coverage",
+    "files",
+    ".tmp"
+  ]
+}

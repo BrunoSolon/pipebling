@@ -1,0 +1,17 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+    "prefer-destructuring":"off",
+    "no-param-reassign": "off",
+    "import/no-cycle": "off",
+    "max-len": [
+      "error",
+      120
+    ],
+    "linebreak-style": "off"
+  },
+  "plugins": [
+    "babel"
+  ]
+}
