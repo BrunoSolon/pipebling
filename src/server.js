@@ -19,6 +19,7 @@ app.use((req, res) => {
   res.status(httpStatus.NOT_FOUND).json();
 });
 
+// eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
   ErrorHandler(err, req, res);
 });
