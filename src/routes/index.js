@@ -9,4 +9,6 @@ Router.get('/live', (req, res) => {
   return res.status(httpStatus.OK).json({ status: 'A API está up', uptime });
 });
 
+Router.use('/integration', require('./integration').default);
+
 export default Router;

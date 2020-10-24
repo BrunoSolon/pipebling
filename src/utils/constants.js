@@ -11,4 +11,14 @@ export default class Constants {
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
   }
+
+  static bling = {
+    apikey: process.env.BLING_API_KEY,
+    url: process.env.BLING_URL,
+  }
+
+  static pipedrive = {
+    apikey: process.env.PIPEDRIVE_API_KEY,
+    url: process.env.PIPEDRIVE_URL,
+  }
 }
