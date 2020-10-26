@@ -1,6 +1,6 @@
 version: '3'
 services:
   pipebling:
-    image: "brunosolon/backend-pipebling:alpha"
+    image: "brunosolon/backend-pipebling:beta"
     ports:
       - "8080:8080"
