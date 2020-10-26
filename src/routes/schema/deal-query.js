@@ -24,4 +24,22 @@ const DealQuery = {
   },
 };
 
-export default DealQuery;
+const DealDbQuery = {
+  page: {
+    in: 'query',
+    isNumeric: true,
+    optional: true,
+    errorMessage: 'invalid_page_input',
+  },
+  limit: {
+    in: 'query',
+    isNumeric: true,
+    optional: true,
+    errorMessage: 'invalid_limit_input',
+  },
+};
+
+export {
+  DealQuery,
+  DealDbQuery,
+};
