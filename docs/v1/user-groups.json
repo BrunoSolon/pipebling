@@ -1,0 +1,190 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Integração entre Pipedrive e Bling",
+    "description": "Busca as informações de negócios ganhos no Pipedrive e os salvam no Bling",
+    "contact": {
+      "email": "bruno_solon@hotmail.com"
+    },
+    "version": "1"
+  },
+  "servers": [
+    {
+      "url": "/api/v1"
+    }
+
+  ],
+  "paths": {
+    "/integration/deal/won": {
+      "get": {
+        "tags": [
+          "Busca as informações de negócios ganhos no Pipedrive e os salvam no Bling"
+        ],
+        "summary": "",
+        "description": "Busca as informações de negócios ganhos no Pipedrive e os salvam no Bling",
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "query",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "amount",
+            "in": "query",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna mensagem com status de sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": { },
+                  "example": {
+                    "status": 200,
+                    "message": "Dados enviados com sucesso"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/deal": {
+      "get": {
+        "tags": [
+          "Busca as informações no banco de dados MongoDB os negócios cadastrados no Bling"
+        ],
+        "summary": "",
+        "description": "Busca as informações no banco de dados MongoDB os negócios cadastrados no Bling",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "type": "number",
+            "required": false
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "number",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna os dados dos negócios ganhos por dia",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": { },
+                  "example": {
+                    "response": [
+                      {
+                        "total_value": 20000,
+                        "_id": "5f9646b0fd6ab2d0cb1b06b9",
+                        "date": "2020-10-22",
+                        "deals": [
+                          {
+                            "_id": "5f9646b1fd6ab2d0cb1b06ba",
+                            "pipedriveId": 1,
+                            "pipedriveUserId": 11791087,
+                            "pipedrivePersonId": 1,
+                            "pipedriveOrgId": 1,
+                            "client": "Roberto Silva",
+                            "organization": "Robert",
+                            "status": "won",
+                            "wonTime": "2020-10-23T02:32:29.000Z",
+                            "value": 20000
+                          }
+                        ],
+                        "__v": 0
+                      },
+                      {
+                        "total_value": 2300,
+                        "_id": "5f9646cffd6ab2d0cb1b06bf",
+                        "date": "2020-10-26",
+                        "deals": [
+                          {
+                            "_id": "5f9646d0fd6ab2d0cb1b06c0",
+                            "pipedriveId": 10,
+                            "pipedriveUserId": 11791087,
+                            "pipedrivePersonId": 1,
+                            "pipedriveOrgId": 1,
+                            "client": "Roberto Silva",
+                            "organization": "Robert",
+                            "status": "won",
+                            "wonTime": "2020-10-26T06:00:00.000Z",
+                            "value": 300
+                          },
+                          {
+                            "_id": "5f9646d0fd6ab2d0cb1b06c1",
+                            "pipedriveId": 11,
+                            "pipedriveUserId": 11791087,
+                            "pipedrivePersonId": 1,
+                            "pipedriveOrgId": 1,
+                            "client": "Roberto Silva",
+                            "organization": "Robert",
+                            "status": "won",
+                            "wonTime": "2020-10-26T06:00:00.000Z",
+                            "value": 2000
+                          }
+                        ],
+                        "__v": 0
+                      }
+                    ],
+                    "count": 2,
+                    "pages": 1
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/live": {
+      "get": {
+        "tags": [
+          "Verifica se a Integridade da API"
+        ],
+        "summary": "Retorna 200 se a API está OK",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Retorna 200 se a API está OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "A API está ok"
+                    },
+                    "uptime": {
+                      "type": "number",
+                      "example": 142435
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -13,7 +13,7 @@ export default async (req, res) => {
     const wonDeals = await PipedriveService.getWonDeals({ startDate, amount });
     await BlingService.handleOrders(wonDeals, startDate);
 
-    return res.status(httpStatus.OK).json();
+    return res.status(httpStatus.OK).json({ status: 200, message: 'Dados enviados com sucesso' });
   } catch (err) {
     return ErrorHandler(err, req, res);
   }

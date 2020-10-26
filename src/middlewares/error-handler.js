@@ -1,6 +1,7 @@
 import httpStatus from 'http-status';
 
 import IntegrationError from '../utils/errors/integration';
+import PersistenceError from '../utils/errors/persistence';
 
 /**
  *
@@ -19,6 +20,8 @@ export default function errorHandler(err, req, res) {
   } else if (err instanceof IntegrationError) {
     const status = err.err && err.err.status ? err.err.status : httpStatus.INTERNAL_SERVER_ERROR;
     res.status(status).json({ message: err.msgErr, code: err.code, err: err.err });
+  } else if (err instanceof PersistenceError) {
+    res.status(httpStatus.INTERNAL_SERVER_ERROR).json({ message: err.msgErr, err: err.err });
   } else {
     res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
   }

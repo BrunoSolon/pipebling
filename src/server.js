@@ -2,6 +2,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import httpStatus from 'http-status';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from '../docs/v1/user-groups.json';
 import routes from './routes';
 
 import ErrorHandler from './middlewares/error-handler';
@@ -13,7 +15,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
 
-app.use('/api', routes);
+app.use('/docs', swaggerUi.serve);
+app.use('/docs', swaggerUi.setup(swaggerDocument));
+
+app.use('/api/v1', routes);
 
 app.use((req, res) => {
   res.status(httpStatus.NOT_FOUND).json();

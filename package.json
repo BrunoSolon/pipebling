@@ -8,6 +8,7 @@
     "build": "npm run clean && babel ./src --out-dir ./dist --copy-files",
     "prepublish": "npm run build",
     "start": "node ./dist/app",
+    "start:dev": "npm run build && node ./dist/app",
     "lint": "./node_modules/.bin/eslint -c .eslintrc --ext .js ./src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -30,7 +31,8 @@
     "js2xmlparser": "^4.0.1",
     "moment": "^2.29.1",
     "mongoose": "^5.10.9",
-    "qs": "^6.9.4"
+    "qs": "^6.9.4",
+    "swagger-ui-express": "^4.1.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
