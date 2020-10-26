@@ -4,14 +4,18 @@ import IntegrationError, { IntegrationCodeError } from '../utils/errors/integrat
 import { handleAxiosError } from '../utils/general';
 
 export default class PipedriveService {
-  static async getWonDeal() {
+  static async getWonDeals(opts) {
     let response = null;
-    const uri = `${Constants.pipedrive.url}/deals`;
+    const url = `${Constants.pipedrive.url}/deals/timeline`;
 
     try {
-      response = await axios.get(uri, {
+      response = await axios.get(url, {
         params: {
           api_token: Constants.pipedrive.apikey,
+          start_date: opts.startDate,
+          interval: 'day',
+          amount: opts.amount,
+          field_key: 'won_time',
         },
       });
 
