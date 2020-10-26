@@ -27,7 +27,7 @@ npm run start:dev
 ATENÇÃO, utilize os comandos a seguir na raiz do projeto.
 
 docker build -t backend-pipebling .
-docker run -d -p 8080:8080 backend-pipedrive
+docker run -d -p 8080:8080 backend-pipebling
 
 ou
 
