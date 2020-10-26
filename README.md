@@ -36,7 +36,7 @@ docker-compose up -d
 
 ## Docs
 ```sh
-Acesse a documentação do Swagger quando o projeto estiver rodando corretamente.
+Acesse a documentação do Swagger quando o projeto estiver rodando.
 
 URL: http://localhost:8080/docs
 ```
